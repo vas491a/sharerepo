@@ -1,0 +1,11 @@
+def call (tomcatid,warname,cerdid){
+    sshagent(["${credid}"]) {
+           // copy war file to tomcat server
+           sh "scp-o StricthostkeyChecking=no terget/*.war ec2-user@${tomcatid}:/opt/tomcat9/webapps/${warname}"
+           // stop tomcat
+           sh "ssh ec2-user@${tomcatid} /opt/tomcat9/bin/shutdown.sh"
+           //start tomcat
+           sh "ssh ec2-user@${tomcatid} /opt/tomcat9/bin/startup.sh"
+    }
+
+}
